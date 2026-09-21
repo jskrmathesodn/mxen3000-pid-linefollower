@@ -1,0 +1,16 @@
+# Visual Studio build output / per-machine artifacts
+[Bb]in/
+[Oo]bj/
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Arduino IDE
+*.hex
+*.elf
+
+# OS junk
+.DS_Store
+Thumbs.db
