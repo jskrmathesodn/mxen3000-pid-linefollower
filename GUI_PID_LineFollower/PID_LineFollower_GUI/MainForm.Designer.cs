@@ -35,8 +35,6 @@ namespace PIDLineFollowerGUI
             this.kDBox = new System.Windows.Forms.NumericUpDown();
             this.lblBasePWM = new System.Windows.Forms.Label();
             this.basePWMBox = new System.Windows.Forms.NumericUpDown();
-            this.lblIntegralClamp = new System.Windows.Forms.Label();
-            this.integralClampBox = new System.Windows.Forms.NumericUpDown();
             this.lblSensorMin = new System.Windows.Forms.Label();
             this.sensorMinBox = new System.Windows.Forms.NumericUpDown();
             this.lblSensorMax = new System.Windows.Forms.Label();
@@ -55,6 +53,8 @@ namespace PIDLineFollowerGUI
             this.leftOutLiveBox = new System.Windows.Forms.TextBox();
             this.lblRightOut = new System.Windows.Forms.Label();
             this.rightOutLiveBox = new System.Windows.Forms.TextBox();
+            this.lblTrim = new System.Windows.Forms.Label();
+            this.motorTrimBox = new System.Windows.Forms.NumericUpDown();
             this.manualGroup = new System.Windows.Forms.GroupBox();
             this.lblOut1 = new System.Windows.Forms.Label();
             this.OutputBox1 = new System.Windows.Forms.NumericUpDown();
@@ -73,9 +73,9 @@ namespace PIDLineFollowerGUI
             ((System.ComponentModel.ISupportInitialize)(this.kIBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kDBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.basePWMBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.integralClampBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sensorMinBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sensorMaxBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.motorTrimBox)).BeginInit();
             this.manualGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.OutputBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.OutputBox2)).BeginInit();
@@ -101,8 +101,6 @@ namespace PIDLineFollowerGUI
             this.pidGroup.Controls.Add(this.kDBox);
             this.pidGroup.Controls.Add(this.lblBasePWM);
             this.pidGroup.Controls.Add(this.basePWMBox);
-            this.pidGroup.Controls.Add(this.lblIntegralClamp);
-            this.pidGroup.Controls.Add(this.integralClampBox);
             this.pidGroup.Controls.Add(this.lblSensorMin);
             this.pidGroup.Controls.Add(this.sensorMinBox);
             this.pidGroup.Controls.Add(this.lblSensorMax);
@@ -121,6 +119,8 @@ namespace PIDLineFollowerGUI
             this.pidGroup.Controls.Add(this.leftOutLiveBox);
             this.pidGroup.Controls.Add(this.lblRightOut);
             this.pidGroup.Controls.Add(this.rightOutLiveBox);
+            this.pidGroup.Controls.Add(this.lblTrim);
+            this.pidGroup.Controls.Add(this.motorTrimBox);
             this.pidGroup.Location = new System.Drawing.Point(24, 23);
             this.pidGroup.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.pidGroup.Name = "pidGroup";
@@ -158,7 +158,7 @@ namespace PIDLineFollowerGUI
             this.kPBox.Size = new System.Drawing.Size(160, 31);
             this.kPBox.TabIndex = 1;
             this.kPBox.Value = new decimal(new int[] {
-            5,
+            98,
             0,
             0,
             65536});
@@ -190,6 +190,11 @@ namespace PIDLineFollowerGUI
             this.kIBox.Name = "kIBox";
             this.kIBox.Size = new System.Drawing.Size(160, 31);
             this.kIBox.TabIndex = 3;
+            this.kIBox.Value = new decimal(new int[] {
+            2,
+            0,
+            0,
+            65536});
             // 
             // lblKD
             // 
@@ -218,6 +223,11 @@ namespace PIDLineFollowerGUI
             this.kDBox.Name = "kDBox";
             this.kDBox.Size = new System.Drawing.Size(160, 31);
             this.kDBox.TabIndex = 5;
+            this.kDBox.Value = new decimal(new int[] {
+            12,
+            0,
+            0,
+            65536});
             // 
             // lblBasePWM
             // 
@@ -226,7 +236,7 @@ namespace PIDLineFollowerGUI
             this.lblBasePWM.Name = "lblBasePWM";
             this.lblBasePWM.Size = new System.Drawing.Size(280, 44);
             this.lblBasePWM.TabIndex = 6;
-            this.lblBasePWM.Text = "Base PWM (0-255):";
+            this.lblBasePWM.Text = "Base PWM (128 = stop, e.g. 190 for forward cruise):";
             // 
             // basePWMBox
             // 
@@ -241,35 +251,7 @@ namespace PIDLineFollowerGUI
             this.basePWMBox.Size = new System.Drawing.Size(160, 31);
             this.basePWMBox.TabIndex = 7;
             this.basePWMBox.Value = new decimal(new int[] {
-            120,
-            0,
-            0,
-            0});
-            // 
-            // lblIntegralClamp
-            // 
-            this.lblIntegralClamp.Location = new System.Drawing.Point(560, 119);
-            this.lblIntegralClamp.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.lblIntegralClamp.Name = "lblIntegralClamp";
-            this.lblIntegralClamp.Size = new System.Drawing.Size(240, 44);
-            this.lblIntegralClamp.TabIndex = 8;
-            this.lblIntegralClamp.Text = "Integral clamp:";
-            // 
-            // integralClampBox
-            // 
-            this.integralClampBox.DecimalPlaces = 1;
-            this.integralClampBox.Location = new System.Drawing.Point(810, 115);
-            this.integralClampBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.integralClampBox.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.integralClampBox.Name = "integralClampBox";
-            this.integralClampBox.Size = new System.Drawing.Size(160, 31);
-            this.integralClampBox.TabIndex = 9;
-            this.integralClampBox.Value = new decimal(new int[] {
-            50,
+            160,
             0,
             0,
             0});
@@ -295,6 +277,11 @@ namespace PIDLineFollowerGUI
             this.sensorMinBox.Name = "sensorMinBox";
             this.sensorMinBox.Size = new System.Drawing.Size(160, 31);
             this.sensorMinBox.TabIndex = 11;
+            this.sensorMinBox.Value = new decimal(new int[] {
+            160,
+            0,
+            0,
+            0});
             // 
             // lblSensorMax
             // 
@@ -318,7 +305,7 @@ namespace PIDLineFollowerGUI
             this.sensorMaxBox.Size = new System.Drawing.Size(160, 31);
             this.sensorMaxBox.TabIndex = 13;
             this.sensorMaxBox.Value = new decimal(new int[] {
-            255,
+            200,
             0,
             0,
             0});
@@ -459,6 +446,33 @@ namespace PIDLineFollowerGUI
             this.rightOutLiveBox.TabIndex = 27;
             this.rightOutLiveBox.Text = "0";
             // 
+            // lblTrim
+            // 
+            this.lblTrim.Location = new System.Drawing.Point(40, 533);
+            this.lblTrim.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.lblTrim.Name = "lblTrim";
+            this.lblTrim.Size = new System.Drawing.Size(560, 44);
+            this.lblTrim.TabIndex = 28;
+            this.lblTrim.Text = "Motor trim (+ boosts right wheel, - boosts left):";
+            // 
+            // motorTrimBox
+            // 
+            this.motorTrimBox.Location = new System.Drawing.Point(610, 529);
+            this.motorTrimBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.motorTrimBox.Maximum = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
+            this.motorTrimBox.Minimum = new decimal(new int[] {
+            50,
+            0,
+            0,
+            -2147483648});
+            this.motorTrimBox.Name = "motorTrimBox";
+            this.motorTrimBox.Size = new System.Drawing.Size(160, 31);
+            this.motorTrimBox.TabIndex = 29;
+            // 
             // manualGroup
             // 
             this.manualGroup.Controls.Add(this.lblOut1);
@@ -489,17 +503,28 @@ namespace PIDLineFollowerGUI
             this.lblOut1.Name = "lblOut1";
             this.lblOut1.Size = new System.Drawing.Size(440, 44);
             this.lblOut1.TabIndex = 0;
-            this.lblOut1.Text = "Output 1 (DAC code 0-255):";
+            this.lblOut1.Text = "Output 1 (Volts, -15 to +15, 0 = stop):";
             // 
             // OutputBox1
             // 
+            this.OutputBox1.DecimalPlaces = 1;
+            this.OutputBox1.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
             this.OutputBox1.Location = new System.Drawing.Point(500, 54);
             this.OutputBox1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.OutputBox1.Maximum = new decimal(new int[] {
-            255,
+            15,
             0,
             0,
             0});
+            this.OutputBox1.Minimum = new decimal(new int[] {
+            15,
+            0,
+            0,
+            -2147483648});
             this.OutputBox1.Name = "OutputBox1";
             this.OutputBox1.Size = new System.Drawing.Size(160, 31);
             this.OutputBox1.TabIndex = 1;
@@ -522,17 +547,28 @@ namespace PIDLineFollowerGUI
             this.lblOut2.Name = "lblOut2";
             this.lblOut2.Size = new System.Drawing.Size(440, 44);
             this.lblOut2.TabIndex = 3;
-            this.lblOut2.Text = "Output 2 (DAC code 0-255):";
+            this.lblOut2.Text = "Output 2 (Volts, -15 to +15, 0 = stop):";
             // 
             // OutputBox2
             // 
+            this.OutputBox2.DecimalPlaces = 1;
+            this.OutputBox2.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
             this.OutputBox2.Location = new System.Drawing.Point(500, 131);
             this.OutputBox2.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.OutputBox2.Maximum = new decimal(new int[] {
-            255,
+            15,
             0,
             0,
             0});
+            this.OutputBox2.Minimum = new decimal(new int[] {
+            15,
+            0,
+            0,
+            -2147483648});
             this.OutputBox2.Name = "OutputBox2";
             this.OutputBox2.Size = new System.Drawing.Size(160, 31);
             this.OutputBox2.TabIndex = 4;
@@ -625,9 +661,9 @@ namespace PIDLineFollowerGUI
             ((System.ComponentModel.ISupportInitialize)(this.kIBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kDBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.basePWMBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.integralClampBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sensorMinBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sensorMaxBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.motorTrimBox)).EndInit();
             this.manualGroup.ResumeLayout(false);
             this.manualGroup.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.OutputBox1)).EndInit();
@@ -650,8 +686,6 @@ namespace PIDLineFollowerGUI
         private System.Windows.Forms.NumericUpDown kDBox;
         private System.Windows.Forms.Label lblBasePWM;
         private System.Windows.Forms.NumericUpDown basePWMBox;
-        private System.Windows.Forms.Label lblIntegralClamp;
-        private System.Windows.Forms.NumericUpDown integralClampBox;
         private System.Windows.Forms.Label lblSensorMin;
         private System.Windows.Forms.NumericUpDown sensorMinBox;
         private System.Windows.Forms.Label lblSensorMax;
@@ -670,6 +704,8 @@ namespace PIDLineFollowerGUI
         private System.Windows.Forms.TextBox leftOutLiveBox;
         private System.Windows.Forms.Label lblRightOut;
         private System.Windows.Forms.TextBox rightOutLiveBox;
+        private System.Windows.Forms.Label lblTrim;
+        private System.Windows.Forms.NumericUpDown motorTrimBox;
 
         private System.Windows.Forms.GroupBox manualGroup;
         private System.Windows.Forms.Label lblOut1;
