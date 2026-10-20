@@ -10,6 +10,7 @@ namespace PIDLineFollowerGUI
         /// <summary>
         /// Clean up any resources being used.
         /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -21,6 +22,10 @@ namespace PIDLineFollowerGUI
 
         #region Windows Form Designer generated code
 
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
@@ -55,6 +60,11 @@ namespace PIDLineFollowerGUI
             this.rightOutLiveBox = new System.Windows.Forms.TextBox();
             this.lblTrim = new System.Windows.Forms.Label();
             this.motorTrimBox = new System.Windows.Forms.NumericUpDown();
+            this.presetGroup = new System.Windows.Forms.GroupBox();
+            this.presetCWButton = new System.Windows.Forms.Button();
+            this.presetACWButton = new System.Windows.Forms.Button();
+            this.presetSquiggleButton = new System.Windows.Forms.Button();
+            this.presetReverseButton = new System.Windows.Forms.Button();
             this.manualGroup = new System.Windows.Forms.GroupBox();
             this.lblOut1 = new System.Windows.Forms.Label();
             this.OutputBox1 = new System.Windows.Forms.NumericUpDown();
@@ -76,6 +86,7 @@ namespace PIDLineFollowerGUI
             ((System.ComponentModel.ISupportInitialize)(this.sensorMinBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sensorMaxBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.motorTrimBox)).BeginInit();
+            this.presetGroup.SuspendLayout();
             this.manualGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.OutputBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.OutputBox2)).BeginInit();
@@ -122,9 +133,9 @@ namespace PIDLineFollowerGUI
             this.pidGroup.Controls.Add(this.lblTrim);
             this.pidGroup.Controls.Add(this.motorTrimBox);
             this.pidGroup.Location = new System.Drawing.Point(24, 23);
-            this.pidGroup.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.pidGroup.Margin = new System.Windows.Forms.Padding(6);
             this.pidGroup.Name = "pidGroup";
-            this.pidGroup.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.pidGroup.Padding = new System.Windows.Forms.Padding(6);
             this.pidGroup.Size = new System.Drawing.Size(1300, 558);
             this.pidGroup.TabIndex = 0;
             this.pidGroup.TabStop = false;
@@ -148,7 +159,7 @@ namespace PIDLineFollowerGUI
             0,
             131072});
             this.kPBox.Location = new System.Drawing.Point(150, 48);
-            this.kPBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.kPBox.Margin = new System.Windows.Forms.Padding(6);
             this.kPBox.Maximum = new decimal(new int[] {
             50,
             0,
@@ -158,7 +169,7 @@ namespace PIDLineFollowerGUI
             this.kPBox.Size = new System.Drawing.Size(160, 31);
             this.kPBox.TabIndex = 1;
             this.kPBox.Value = new decimal(new int[] {
-            98,
+            99,
             0,
             0,
             65536});
@@ -181,7 +192,7 @@ namespace PIDLineFollowerGUI
             0,
             196608});
             this.kIBox.Location = new System.Drawing.Point(470, 48);
-            this.kIBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.kIBox.Margin = new System.Windows.Forms.Padding(6);
             this.kIBox.Maximum = new decimal(new int[] {
             10,
             0,
@@ -191,7 +202,7 @@ namespace PIDLineFollowerGUI
             this.kIBox.Size = new System.Drawing.Size(160, 31);
             this.kIBox.TabIndex = 3;
             this.kIBox.Value = new decimal(new int[] {
-            2,
+            20,
             0,
             0,
             65536});
@@ -214,7 +225,7 @@ namespace PIDLineFollowerGUI
             0,
             196608});
             this.kDBox.Location = new System.Drawing.Point(790, 48);
-            this.kDBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.kDBox.Margin = new System.Windows.Forms.Padding(6);
             this.kDBox.Maximum = new decimal(new int[] {
             10,
             0,
@@ -224,7 +235,7 @@ namespace PIDLineFollowerGUI
             this.kDBox.Size = new System.Drawing.Size(160, 31);
             this.kDBox.TabIndex = 5;
             this.kDBox.Value = new decimal(new int[] {
-            12,
+            26,
             0,
             0,
             65536});
@@ -241,7 +252,7 @@ namespace PIDLineFollowerGUI
             // basePWMBox
             // 
             this.basePWMBox.Location = new System.Drawing.Point(330, 115);
-            this.basePWMBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.basePWMBox.Margin = new System.Windows.Forms.Padding(6);
             this.basePWMBox.Maximum = new decimal(new int[] {
             255,
             0,
@@ -251,7 +262,7 @@ namespace PIDLineFollowerGUI
             this.basePWMBox.Size = new System.Drawing.Size(160, 31);
             this.basePWMBox.TabIndex = 7;
             this.basePWMBox.Value = new decimal(new int[] {
-            160,
+            180,
             0,
             0,
             0});
@@ -268,7 +279,7 @@ namespace PIDLineFollowerGUI
             // sensorMinBox
             // 
             this.sensorMinBox.Location = new System.Drawing.Point(350, 183);
-            this.sensorMinBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.sensorMinBox.Margin = new System.Windows.Forms.Padding(6);
             this.sensorMinBox.Maximum = new decimal(new int[] {
             255,
             0,
@@ -278,7 +289,7 @@ namespace PIDLineFollowerGUI
             this.sensorMinBox.Size = new System.Drawing.Size(160, 31);
             this.sensorMinBox.TabIndex = 11;
             this.sensorMinBox.Value = new decimal(new int[] {
-            160,
+            175,
             0,
             0,
             0});
@@ -295,7 +306,7 @@ namespace PIDLineFollowerGUI
             // sensorMaxBox
             // 
             this.sensorMaxBox.Location = new System.Drawing.Point(870, 183);
-            this.sensorMaxBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.sensorMaxBox.Margin = new System.Windows.Forms.Padding(6);
             this.sensorMaxBox.Maximum = new decimal(new int[] {
             255,
             0,
@@ -313,7 +324,7 @@ namespace PIDLineFollowerGUI
             // startButton
             // 
             this.startButton.Location = new System.Drawing.Point(40, 265);
-            this.startButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.startButton.Margin = new System.Windows.Forms.Padding(6);
             this.startButton.Name = "startButton";
             this.startButton.Size = new System.Drawing.Size(300, 77);
             this.startButton.TabIndex = 14;
@@ -324,7 +335,7 @@ namespace PIDLineFollowerGUI
             // stopButton
             // 
             this.stopButton.Location = new System.Drawing.Point(370, 265);
-            this.stopButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.stopButton.Margin = new System.Windows.Forms.Padding(6);
             this.stopButton.Name = "stopButton";
             this.stopButton.Size = new System.Drawing.Size(300, 77);
             this.stopButton.TabIndex = 15;
@@ -344,7 +355,7 @@ namespace PIDLineFollowerGUI
             // input1LiveBox
             // 
             this.input1LiveBox.Location = new System.Drawing.Point(120, 375);
-            this.input1LiveBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.input1LiveBox.Margin = new System.Windows.Forms.Padding(6);
             this.input1LiveBox.Name = "input1LiveBox";
             this.input1LiveBox.ReadOnly = true;
             this.input1LiveBox.Size = new System.Drawing.Size(136, 31);
@@ -363,7 +374,7 @@ namespace PIDLineFollowerGUI
             // input2LiveBox
             // 
             this.input2LiveBox.Location = new System.Drawing.Point(380, 375);
-            this.input2LiveBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.input2LiveBox.Margin = new System.Windows.Forms.Padding(6);
             this.input2LiveBox.Name = "input2LiveBox";
             this.input2LiveBox.ReadOnly = true;
             this.input2LiveBox.Size = new System.Drawing.Size(136, 31);
@@ -382,7 +393,7 @@ namespace PIDLineFollowerGUI
             // errorLiveBox
             // 
             this.errorLiveBox.Location = new System.Drawing.Point(660, 375);
-            this.errorLiveBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.errorLiveBox.Margin = new System.Windows.Forms.Padding(6);
             this.errorLiveBox.Name = "errorLiveBox";
             this.errorLiveBox.ReadOnly = true;
             this.errorLiveBox.Size = new System.Drawing.Size(136, 31);
@@ -401,7 +412,7 @@ namespace PIDLineFollowerGUI
             // effortLiveBox
             // 
             this.effortLiveBox.Location = new System.Drawing.Point(960, 375);
-            this.effortLiveBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.effortLiveBox.Margin = new System.Windows.Forms.Padding(6);
             this.effortLiveBox.Name = "effortLiveBox";
             this.effortLiveBox.ReadOnly = true;
             this.effortLiveBox.Size = new System.Drawing.Size(136, 31);
@@ -420,7 +431,7 @@ namespace PIDLineFollowerGUI
             // leftOutLiveBox
             // 
             this.leftOutLiveBox.Location = new System.Drawing.Point(180, 452);
-            this.leftOutLiveBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.leftOutLiveBox.Margin = new System.Windows.Forms.Padding(6);
             this.leftOutLiveBox.Name = "leftOutLiveBox";
             this.leftOutLiveBox.ReadOnly = true;
             this.leftOutLiveBox.Size = new System.Drawing.Size(136, 31);
@@ -439,7 +450,7 @@ namespace PIDLineFollowerGUI
             // rightOutLiveBox
             // 
             this.rightOutLiveBox.Location = new System.Drawing.Point(520, 452);
-            this.rightOutLiveBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.rightOutLiveBox.Margin = new System.Windows.Forms.Padding(6);
             this.rightOutLiveBox.Name = "rightOutLiveBox";
             this.rightOutLiveBox.ReadOnly = true;
             this.rightOutLiveBox.Size = new System.Drawing.Size(136, 31);
@@ -458,7 +469,7 @@ namespace PIDLineFollowerGUI
             // motorTrimBox
             // 
             this.motorTrimBox.Location = new System.Drawing.Point(610, 529);
-            this.motorTrimBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.motorTrimBox.Margin = new System.Windows.Forms.Padding(6);
             this.motorTrimBox.Maximum = new decimal(new int[] {
             50,
             0,
@@ -472,6 +483,65 @@ namespace PIDLineFollowerGUI
             this.motorTrimBox.Name = "motorTrimBox";
             this.motorTrimBox.Size = new System.Drawing.Size(160, 31);
             this.motorTrimBox.TabIndex = 29;
+            // 
+            // presetGroup
+            // 
+            this.presetGroup.Controls.Add(this.presetCWButton);
+            this.presetGroup.Controls.Add(this.presetACWButton);
+            this.presetGroup.Controls.Add(this.presetSquiggleButton);
+            this.presetGroup.Controls.Add(this.presetReverseButton);
+            this.presetGroup.Location = new System.Drawing.Point(24, 1109);
+            this.presetGroup.Margin = new System.Windows.Forms.Padding(6);
+            this.presetGroup.Name = "presetGroup";
+            this.presetGroup.Padding = new System.Windows.Forms.Padding(6);
+            this.presetGroup.Size = new System.Drawing.Size(1300, 160);
+            this.presetGroup.TabIndex = 2;
+            this.presetGroup.TabStop = false;
+            this.presetGroup.Text = "Track presets";
+            // 
+            // presetCWButton
+            // 
+            this.presetCWButton.Location = new System.Drawing.Point(30, 45);
+            this.presetCWButton.Margin = new System.Windows.Forms.Padding(6);
+            this.presetCWButton.Name = "presetCWButton";
+            this.presetCWButton.Size = new System.Drawing.Size(290, 80);
+            this.presetCWButton.TabIndex = 0;
+            this.presetCWButton.Text = "CW Circle";
+            this.presetCWButton.UseVisualStyleBackColor = true;
+            this.presetCWButton.Click += new System.EventHandler(this.presetCWCircle_Click);
+            // 
+            // presetACWButton
+            // 
+            this.presetACWButton.Location = new System.Drawing.Point(340, 45);
+            this.presetACWButton.Margin = new System.Windows.Forms.Padding(6);
+            this.presetACWButton.Name = "presetACWButton";
+            this.presetACWButton.Size = new System.Drawing.Size(290, 80);
+            this.presetACWButton.TabIndex = 1;
+            this.presetACWButton.Text = "ACW Circle";
+            this.presetACWButton.UseVisualStyleBackColor = true;
+            this.presetACWButton.Click += new System.EventHandler(this.presetACWCircle_Click);
+            // 
+            // presetSquiggleButton
+            // 
+            this.presetSquiggleButton.Location = new System.Drawing.Point(650, 45);
+            this.presetSquiggleButton.Margin = new System.Windows.Forms.Padding(6);
+            this.presetSquiggleButton.Name = "presetSquiggleButton";
+            this.presetSquiggleButton.Size = new System.Drawing.Size(290, 80);
+            this.presetSquiggleButton.TabIndex = 2;
+            this.presetSquiggleButton.Text = "Squiggle";
+            this.presetSquiggleButton.UseVisualStyleBackColor = true;
+            this.presetSquiggleButton.Click += new System.EventHandler(this.presetSquiggle_Click);
+            // 
+            // presetReverseButton
+            // 
+            this.presetReverseButton.Location = new System.Drawing.Point(960, 45);
+            this.presetReverseButton.Margin = new System.Windows.Forms.Padding(6);
+            this.presetReverseButton.Name = "presetReverseButton";
+            this.presetReverseButton.Size = new System.Drawing.Size(290, 80);
+            this.presetReverseButton.TabIndex = 3;
+            this.presetReverseButton.Text = "Reverse";
+            this.presetReverseButton.UseVisualStyleBackColor = true;
+            this.presetReverseButton.Click += new System.EventHandler(this.presetReverse_Click);
             // 
             // manualGroup
             // 
@@ -488,9 +558,9 @@ namespace PIDLineFollowerGUI
             this.manualGroup.Controls.Add(this.lblStatus);
             this.manualGroup.Controls.Add(this.statusBox);
             this.manualGroup.Location = new System.Drawing.Point(24, 600);
-            this.manualGroup.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.manualGroup.Margin = new System.Windows.Forms.Padding(6);
             this.manualGroup.Name = "manualGroup";
-            this.manualGroup.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.manualGroup.Padding = new System.Windows.Forms.Padding(6);
             this.manualGroup.Size = new System.Drawing.Size(1300, 490);
             this.manualGroup.TabIndex = 1;
             this.manualGroup.TabStop = false;
@@ -514,7 +584,7 @@ namespace PIDLineFollowerGUI
             0,
             65536});
             this.OutputBox1.Location = new System.Drawing.Point(500, 54);
-            this.OutputBox1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.OutputBox1.Margin = new System.Windows.Forms.Padding(6);
             this.OutputBox1.Maximum = new decimal(new int[] {
             15,
             0,
@@ -532,7 +602,7 @@ namespace PIDLineFollowerGUI
             // Send1
             // 
             this.Send1.Location = new System.Drawing.Point(700, 48);
-            this.Send1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Send1.Margin = new System.Windows.Forms.Padding(6);
             this.Send1.Name = "Send1";
             this.Send1.Size = new System.Drawing.Size(260, 62);
             this.Send1.TabIndex = 2;
@@ -558,7 +628,7 @@ namespace PIDLineFollowerGUI
             0,
             65536});
             this.OutputBox2.Location = new System.Drawing.Point(500, 131);
-            this.OutputBox2.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.OutputBox2.Margin = new System.Windows.Forms.Padding(6);
             this.OutputBox2.Maximum = new decimal(new int[] {
             15,
             0,
@@ -576,7 +646,7 @@ namespace PIDLineFollowerGUI
             // Send2
             // 
             this.Send2.Location = new System.Drawing.Point(700, 125);
-            this.Send2.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Send2.Margin = new System.Windows.Forms.Padding(6);
             this.Send2.Name = "Send2";
             this.Send2.Size = new System.Drawing.Size(260, 62);
             this.Send2.TabIndex = 5;
@@ -587,7 +657,7 @@ namespace PIDLineFollowerGUI
             // Get1
             // 
             this.Get1.Location = new System.Drawing.Point(40, 221);
-            this.Get1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Get1.Margin = new System.Windows.Forms.Padding(6);
             this.Get1.Name = "Get1";
             this.Get1.Size = new System.Drawing.Size(300, 62);
             this.Get1.TabIndex = 6;
@@ -598,7 +668,7 @@ namespace PIDLineFollowerGUI
             // InputBox1
             // 
             this.InputBox1.Location = new System.Drawing.Point(360, 227);
-            this.InputBox1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.InputBox1.Margin = new System.Windows.Forms.Padding(6);
             this.InputBox1.Name = "InputBox1";
             this.InputBox1.ReadOnly = true;
             this.InputBox1.Size = new System.Drawing.Size(296, 31);
@@ -608,7 +678,7 @@ namespace PIDLineFollowerGUI
             // Get2
             // 
             this.Get2.Location = new System.Drawing.Point(40, 308);
-            this.Get2.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Get2.Margin = new System.Windows.Forms.Padding(6);
             this.Get2.Name = "Get2";
             this.Get2.Size = new System.Drawing.Size(300, 62);
             this.Get2.TabIndex = 8;
@@ -619,7 +689,7 @@ namespace PIDLineFollowerGUI
             // InputBox2
             // 
             this.InputBox2.Location = new System.Drawing.Point(360, 313);
-            this.InputBox2.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.InputBox2.Margin = new System.Windows.Forms.Padding(6);
             this.InputBox2.Name = "InputBox2";
             this.InputBox2.ReadOnly = true;
             this.InputBox2.Size = new System.Drawing.Size(296, 31);
@@ -638,7 +708,7 @@ namespace PIDLineFollowerGUI
             // statusBox
             // 
             this.statusBox.Location = new System.Drawing.Point(170, 390);
-            this.statusBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.statusBox.Margin = new System.Windows.Forms.Padding(6);
             this.statusBox.Name = "statusBox";
             this.statusBox.ReadOnly = true;
             this.statusBox.Size = new System.Drawing.Size(1076, 31);
@@ -648,13 +718,13 @@ namespace PIDLineFollowerGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1360, 1154);
+            this.ClientSize = new System.Drawing.Size(1360, 1293);
             this.Controls.Add(this.pidGroup);
             this.Controls.Add(this.manualGroup);
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Controls.Add(this.presetGroup);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "MainForm";
             this.Text = "MXEN3000 - PID Line Follower (Milestone 4)";
-            this.Load += new System.EventHandler(this.MainForm_Load);
             this.pidGroup.ResumeLayout(false);
             this.pidGroup.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kPBox)).EndInit();
@@ -664,6 +734,7 @@ namespace PIDLineFollowerGUI
             ((System.ComponentModel.ISupportInitialize)(this.sensorMinBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sensorMaxBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.motorTrimBox)).EndInit();
+            this.presetGroup.ResumeLayout(false);
             this.manualGroup.ResumeLayout(false);
             this.manualGroup.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.OutputBox1)).EndInit();
@@ -720,5 +791,11 @@ namespace PIDLineFollowerGUI
         private System.Windows.Forms.TextBox InputBox2;
         private System.Windows.Forms.Label lblStatus;
         private System.Windows.Forms.TextBox statusBox;
+
+        private System.Windows.Forms.GroupBox presetGroup;
+        private System.Windows.Forms.Button presetCWButton;
+        private System.Windows.Forms.Button presetACWButton;
+        private System.Windows.Forms.Button presetSquiggleButton;
+        private System.Windows.Forms.Button presetReverseButton;
     }
 }
